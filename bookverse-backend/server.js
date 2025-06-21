@@ -9,6 +9,7 @@ import seedRoute from "./routes/seedRoute.js"; // for adding dummy books
 import reviewRoutes from './routes/reviewRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 
+
 import cors from 'cors';
 
 
@@ -20,6 +21,14 @@ connectDB();
 const app = express();
 app.use(express.json());
 app.use(cors());
+
+
+// Base url output
+app.get('/', (req, res) => {
+  res.send('Server is running successfully');
+});
+
+
 
 app.use('/api/books', bookRoutes); // Register route
 app.use("/api/seed", seedRoute); // for adding dummy books
